@@ -1,0 +1,29 @@
+###
+
+GET http://localhost:5000/user
+###
+POST http://localhost:5000/user
+Content-Type: application/json
+
+{
+    "name": "Jerome1", 
+    "email": "jerome1@gmail.com",
+    "password": "password"
+}
+
+### 
+PATCH http://localhost:5000/user/1
+Content-Type: application/json
+
+{
+    "name": "Miguel", 
+    "email": "rakiabodyjm@gmail.com", 
+    "password": "rakiabodyjm4690", 
+}
+
+###
+GET http://localhost:5000/user/7
+
+###
+DELETE http://localhost:5000/user
+

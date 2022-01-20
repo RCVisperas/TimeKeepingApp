@@ -1,0 +1,26 @@
+GET http://localhost:5000/book
+
+###
+
+POST http://localhost:5000/book
+Content-Type: application/json
+
+{
+    "name": "Book 2", 
+    "date": "2006", 
+    "author": "1"
+}
+
+###
+PATCH http://localhost:5000/book/2
+Content-Type: application/json
+
+{
+    "author": "1", 
+    "name": "Hello World"
+}
+
+###
+
+DELETE http://localhost:5000/book/1
+
