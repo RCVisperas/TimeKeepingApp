@@ -14,23 +14,33 @@ interface MyAppProps extends AppProps {
 const LighTheme = createTheme({
   palette: {
     mode: "light",
-  },
-  typography: {
-    h1: {
-      fontFamily: "Arial",
-      fontSize: "3rem",
+    primary: {
+      main: "#00FF00",
     },
+    secondary: {
+      main: "#e34423",
+    },
+  },
+
+  typography: {
+    fontFamily: "Arial",
+    fontSize: 14,
   },
 });
 const DarkTheme = createTheme({
   palette: {
     mode: "dark",
-  },
-  typography: {
-    h1: {
-      fontFamily: "Arial",
-      fontSize: "3rem",
+    primary: {
+      main: "#00FF00",
     },
+    secondary: {
+      main: "#e34423",
+    },
+  },
+
+  typography: {
+    fontFamily: "Arial",
+    fontSize: 14,
   },
 });
 const getActiveTheme = (themeMode: "light" | "dark") => {

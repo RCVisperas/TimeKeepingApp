@@ -36,7 +36,7 @@ const Home: NextPage = ({ ToogleTheme }) => {
               }}
             >
               <form>
-                <Typography variant="h1">New Category</Typography>
+                <Typography>New Category</Typography>
 
                 <TextField
                   id="CategoryName"
@@ -57,8 +57,7 @@ const Home: NextPage = ({ ToogleTheme }) => {
                   Submit Category
                 </Button>
               </form>
-            </Stack>
-            <Typography variant="h4" component="h1" gutterBottom></Typography>
+            </Stack>{" "}
             <Link href="/test" color="secondary">
               Go to the test page
             </Link>
