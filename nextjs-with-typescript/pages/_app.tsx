@@ -15,10 +15,16 @@ const LighTheme = createTheme({
   palette: {
     mode: "light",
     primary: {
-      main: "#00FF00",
+      main: "#e34423",
     },
     secondary: {
-      main: "#e34423",
+      main: "#042c62",
+    },
+    error: {
+      main: "#f93138",
+    },
+    success: {
+      main: "#0ba20b",
     },
   },
 
@@ -31,10 +37,16 @@ const DarkTheme = createTheme({
   palette: {
     mode: "dark",
     primary: {
-      main: "#00FF00",
+      main: "#e34423",
     },
     secondary: {
-      main: "#e34423",
+      main: "#042c62",
+    },
+    error: {
+      main: "#f93138",
+    },
+    success: {
+      main: "#0ba20b",
     },
   },
 

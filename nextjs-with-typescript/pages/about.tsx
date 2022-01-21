@@ -20,12 +20,10 @@ const About: NextPage = ({ ToogleTheme }) => {
           alignItems: "center",
         }}
       >
-        <Button variant="outlined" onClick={ToogleTheme}>
-          Change Mode
-        </Button>
+        <Button onClick={ToogleTheme}>Change Mode</Button>
         <Typography>MUI v5 + Next.js with TypeScript example</Typography>
         <Box maxWidth="sm">
-          <Button variant="contained" component={Link} noLinkStyle href="/">
+          <Button variant="outlined" component={Link} noLinkStyle href="/">
             Go to the home page
           </Button>
         </Box>
