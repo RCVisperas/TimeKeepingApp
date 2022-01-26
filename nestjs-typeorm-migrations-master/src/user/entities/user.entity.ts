@@ -1,6 +1,6 @@
 import { Exclude } from 'class-transformer'
 import { Book } from 'src/book/entities/book.entity'
-import { Bcrypt } from 'src/utils/Bcrypt'
+
 import {
   BeforeInsert,
   Column,

@@ -1,4 +1,11 @@
-import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from 'typeorm'
+import { Exclude } from 'class-transformer'
+import {
+  BaseEntity,
+  Column,
+  Entity,
+  PrimaryGeneratedColumn,
+  BeforeInsert,
+} from 'typeorm'
 
 @Entity('employees')
 export class employee extends BaseEntity {
@@ -25,4 +32,16 @@ export class employee extends BaseEntity {
 
   @Column()
   contact_person: string
+
+  @Exclude()
+  @Column()
+  password: string
+
+  @Column()
+  updated_at: Date
+
+  @BeforeInsert()
+  updateUpdatedAt() {
+    this.updated_at = new Date()
+  }
 }
