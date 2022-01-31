@@ -22,8 +22,11 @@ export class AuthService {
     const { user_name, password } = authloginDto
 
     const emp = await this.employeeService.findbyusername(user_name)
+    if (!emp) {
+      throw new UnauthorizedException('Employee Not Exist')
+    }
     if (!(await emp?.validatePassword(password))) {
-      throw new UnauthorizedException()
+      throw new UnauthorizedException('Incorrect Password')
     }
     return emp
   }

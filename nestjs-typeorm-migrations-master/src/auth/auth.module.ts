@@ -15,7 +15,11 @@ import { EmployeeservicesService } from 'src/employees/employee/employeeservices
     PassportModule,
     JwtModule.registerAsync({
       imports: [ConfigModule],
-      useFactory: async () => ({ secret: process.env.JWT_SECRET }),
+      useFactory: async () => ({ secret: process.env.JWT_SECRET,
+        signOptions: {
+        expiresIn: '5m',
+      },
+      }),
       inject: [ConfigService],
     }),
   ],
