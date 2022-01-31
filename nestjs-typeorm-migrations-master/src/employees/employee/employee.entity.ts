@@ -6,6 +6,7 @@ import {
   PrimaryGeneratedColumn,
   BeforeInsert,
 } from 'typeorm'
+import * as bcrypt from 'bcrypt'
 
 @Entity('employees')
 export class employee extends BaseEntity {
@@ -33,6 +34,9 @@ export class employee extends BaseEntity {
   @Column()
   contact_person: string
 
+  @Column()
+  user_name: string
+
   @Exclude()
   @Column()
   password: string
@@ -43,5 +47,13 @@ export class employee extends BaseEntity {
   @BeforeInsert()
   updateUpdatedAt() {
     this.updated_at = new Date()
+  }
+
+  @BeforeInsert()
+  async hashPassword() {
+    this.password = await bcrypt.hashSync(this.password, 8)
+  }
+  async validatePassword(password: string): Promise<boolean> {
+    return bcrypt.compareSync(password, this.password)
   }
 }

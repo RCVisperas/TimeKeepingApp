@@ -1,6 +1,7 @@
 import { Exclude } from 'class-transformer'
 import { Book } from 'src/book/entities/book.entity'
 
+import * as bcrypt from 'bcrypt'
 import {
   BeforeInsert,
   Column,
@@ -32,6 +33,10 @@ export class User {
   @BeforeInsert()
   updateUpdatedAt() {
     this.updated_at = new Date()
+  }
+  @BeforeInsert()
+  async hashPassword() {
+    this.password = await bcrypt.hashSync(this.password, 8)
   }
 
   @OneToMany((type) => Book, (book) => book.author, {

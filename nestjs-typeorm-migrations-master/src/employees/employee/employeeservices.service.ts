@@ -40,6 +40,10 @@ export class EmployeeservicesService {
   findOne(id: number) {
     return this.EmployeeRepo.findOne({ id })
   }
+  async findbyusername(user_name: string) {
+    return await this.EmployeeRepo.findOne({ where: { user_name: user_name } })
+  }
+
   remove(id: number) {
     return this.findOne(id)
       .then((user) => {

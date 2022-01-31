@@ -1,7 +1,8 @@
-import { Transform } from 'class-transformer'
-import { IsEmail, IsNotEmpty, MinLength } from 'class-validator'
-import { Bcrypt } from 'src/utils/Bcrypt'
+import { Exclude } from 'class-transformer'
+import { IsEmail, IsNotEmpty } from 'class-validator'
+import { BeforeInsert, Column } from 'typeorm'
 
+import * as bcrypt from 'bcrypt'
 export class CreateUserDto {
   @IsNotEmpty()
   name: string
@@ -9,11 +10,8 @@ export class CreateUserDto {
   @IsNotEmpty()
   @IsEmail()
   email: string
-
   @IsNotEmpty()
-  @MinLength(8, {
-    message: `Password must be at least 8 characters long`,
-  })
-  @Transform(({ value }) => Bcrypt().generatePassword(value))
+  @Exclude()
+  @Column()
   password: string
 }
